@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conexus Tecnologia que resolve o seu negócio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+  body{margin:0;padding:0;background:#0a0e1c;font-family:'Inter',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrapper{max-width:620px;margin:0 auto;padding:32px 16px}
+
+  /* PREHEADER */
+  .preheader{font-size:0;max-height:0;overflow:hidden;color:#0a0e1c}
+
+  /* EMAIL SHELL */
+  .email{background:#04060f;border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden}
+
+  /* HEADER */
+  .email-header{background:#070b1a;padding:32px 40px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
+  .logo-text{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;letter-spacing:.12em;color:#f0f4fc;text-decoration:none}
+  .logo-text span{color:#00A5B7}
+  .header-tag{background:rgba(0,165,183,.08);border:1px solid rgba(0,165,183,.2);border-radius:5px;padding:6px 12px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:#00A5B7;letter-spacing:.1em;text-transform:uppercase}
+
+  /* HERO BLOCK */
+  .hero-block{background:linear-gradient(150deg,#070b1a 0%,#0c1228 100%);padding:56px 40px 48px;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
+  .hero-block::before{content:'';position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,165,183,.07) 0%,transparent 65%);pointer-events:none}
+  .hero-kicker{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:#00A5B7;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .hero-kicker::before{content:'';display:inline-block;width:18px;height:1px;background:#00A5B7;opacity:.6;vertical-align:middle}
+  .hero-h1{font-family:'Outfit',sans-serif;font-size:42px;font-weight:800;line-height:1.08;letter-spacing:-.03em;color:#f0f4fc;margin:0 0 18px}
+  .hero-acc{background:linear-gradient(105deg,#66D9EF 0%,#00A5B7 60%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero-p{font-family:'Inter',sans-serif;font-size:16px;color:#8ab0d4;line-height:1.78;margin:0 0 32px;max-width:460px}
+  .hero-cta{display:inline-block;background:#00A5B7;color:#ffffff;text-decoration:none;border-radius:8px;padding:14px 32px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;letter-spacing:.04em}
+  .hero-sub-cta{display:inline-block;color:#526e90;font-family:'Inter',sans-serif;font-size:13px;margin-left:20px;text-decoration:none;vertical-align:middle}
+
+  /* STATS */
+  .stats-row{background:#070b1a;padding:28px 40px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:0}
+  .stat{flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,.06)}
+  .stat:last-child{border-right:none}
+  .stat-val{font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(105deg,#66D9EF,#00A5B7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+  .stat-lbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:#526e90;letter-spacing:.07em;text-transform:uppercase;line-height:1.4}
+
+  /* SECTION TITLE */
+  .section{padding:48px 40px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .section-kicker{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:600;color:#00A5B7;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+  .section-title{font-family:'Outfit',sans-serif;font-size:28px;font-weight:700;color:#f0f4fc;letter-spacing:-.02em;margin:0 0 8px}
+  .section-sub{font-family:'Inter',sans-serif;font-size:15px;color:#8ab0d4;line-height:1.7;margin:0 0 32px}
+
+  /* SERVICE CARDS */
+  .srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .srv-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px 20px;position:relative;overflow:hidden}
+  .srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,165,183,.3),transparent)}
+  .srv-card.feat{background:rgba(0,165,183,.07);border-color:rgba(0,165,183,.2)}
+  .srv-card.feat::before{background:linear-gradient(90deg,transparent,#00A5B7,rgba(102,217,239,.4),#00A5B7,transparent)}
+  .srv-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .srv-ico{width:36px;height:36px;border-radius:9px;background:rgba(0,165,183,.1);border:1px solid rgba(0,165,183,.18);display:flex;align-items:center;justify-content:center}
+  .srv-card:not(.feat) .srv-ico{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.07)}
+  .srv-price-badge{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:#00A5B7}
+  .srv-card:not(.feat) .srv-price-badge{color:#526e90}
+  .srv-title{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:#f0f4fc;margin:0 0 5px;letter-spacing:-.01em}
+  .srv-desc{font-family:'Inter',sans-serif;font-size:12.5px;color:#8ab0d4;line-height:1.5;margin:0}
+
+  /* TESTIMONIAL */
+  .testimonial{background:linear-gradient(150deg,#0c1228 0%,#070b1a 100%);padding:40px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;text-align:center}
+  .testimonial::before{content:'\201C';font-family:'Outfit',sans-serif;font-size:120px;font-weight:900;color:rgba(0,165,183,.05);line-height:.8;display:block;margin-bottom:-20px}
+  .testimonial-text{font-family:'Outfit',sans-serif;font-size:20px;font-weight:600;color:#f0f4fc;line-height:1.5;margin:0 0 24px}
+  .testimonial-text span{color:#00A5B7}
+  .testimonial-author{display:inline-flex;align-items:center;gap:14px}
+  .t-av{width:44px;height:44px;border-radius:50%;background:rgba(0,165,183,.1);border:1.5px solid rgba(0,165,183,.28);display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;color:#00A5B7;vertical-align:middle}
+  .t-name{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:#f0f4fc;text-align:left}
+  .t-role{font-family:'Inter',sans-serif;font-size:12px;color:#526e90;text-align:left}
+
+  /* PROCESS */
+  .process-steps{display:flex;gap:0;margin-top:28px}
+  .step{flex:1;text-align:center;position:relative;padding:0 10px}
+  .step::after{content:'→';position:absolute;right:-8px;top:14px;color:#526e90;font-size:16px}
+  .step:last-child::after{display:none}
+  .step-num{width:44px;height:44px;border-radius:50%;background:#0c1228;border:1px solid rgba(0,165,183,.3);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;color:#00A5B7;margin:0 auto 12px}
+  .step-title{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:#f0f4fc;margin-bottom:4px}
+  .step-desc{font-family:'Inter',sans-serif;font-size:12px;color:#526e90;line-height:1.4}
+
+  /* FINAL CTA */
+  .final-cta{background:rgba(0,165,183,.07);border:1px solid rgba(0,165,183,.2);padding:44px 40px;text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#00A5B7,rgba(102,217,239,.5),#00A5B7,transparent)}
+  .final-cta h3{font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;color:#f0f4fc;margin:0 0 10px;letter-spacing:-.02em}
+  .final-cta p{font-family:'Inter',sans-serif;font-size:15px;color:#8ab0d4;margin:0 0 28px;line-height:1.65}
+  .cta-big{display:inline-block;background:#00A5B7;color:#ffffff;text-decoration:none;border-radius:8px;padding:16px 44px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.04em;margin-bottom:16px}
+  .cta-note{font-family:'Inter',sans-serif;font-size:12px;color:#526e90}
+
+  /* FOOTER */
+  .email-footer{background:#070b1a;padding:28px 40px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+  .footer-logo{font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;letter-spacing:.12em;color:#f0f4fc;margin-bottom:8px}
+  .footer-logo span{color:#00A5B7}
+  .footer-contacts{font-family:'Inter',sans-serif;font-size:12px;color:#526e90;margin-bottom:12px;line-height:1.8}
+  .footer-legal{font-family:'Inter',sans-serif;font-size:11px;color:#334d6e;line-height:1.6}
+
+  @media(max-width:600px){
+    .srv-grid{grid-template-columns:1fr}
+    .stats-row{flex-direction:column}
+    .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);padding:16px 0}
+    .process-steps{flex-direction:column;gap:16px}
+    .step::after{display:none}
+    .hero-h1{font-size:32px}
+    .section-title{font-size:24px}
+  }
+</style>
+</head>
+<body>
+<div style="display:none;font-size:1px;color:#04060f;max-height:0;overflow:hidden">
+  Sua empresa merece tecnologia que resolve. Diagnóstico gratuito, proposta em 48h. Conheça a Conexus.
+</div>
+
+<div class="wrapper">
+  <div class="email">
+
+    <!-- HEADER -->
+    <div class="email-header">
+      <a class="logo-text" href="https://gabgcx.github.io/Conexus-Tecnologia/">
+        <img src="../../../../assets/logo.png" alt="CONEXUS" style="display:block;height:50px;width:auto;max-width:180px;border:none;outline:none;text-decoration:none;">
+      </a>
+      <div class="header-tag">Lançamento 2026</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero-block">
+      <div class="hero-kicker">Fortaleza · Soluções sob demanda</div>
+      <h1 class="hero-h1">Seu negócio merece<br>tecnologia que<br><span class="hero-acc">realmente funciona.</span></h1>
+      <p class="hero-p">Transformamos processos manuais em sistemas inteligentes que trabalham por você. Sem enrolação, sem jargão. Só resultado em semanas, não meses.</p>
+      <a class="hero-cta" href="https://wa.me/5585985535362?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20tecnologia%20personalizada%20para%20minha%20empresa.%20Podemos%20conversar%3F">Falar com a equipe agora</a>
+      <a class="hero-sub-cta" href="https://gabgcx.github.io/Conexus-Tecnologia/">Ver o site →</a>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-val">48h</div>
+        <div class="stat-lbl">Proposta entregue</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">Personalizado</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">0</div>
+        <div class="stat-lbl">Contratos longos</div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section">
+      <div class="section-kicker">O que fazemos</div>
+      <h2 class="section-title">Cinco soluções. Um problema: o seu.</h2>
+      <p class="section-sub">Cada serviço foi pensado para uma dor específica. Combinamos o que faz sentido para o seu momento.</p>
+
+      <div class="srv-grid">
+        <div class="srv-card feat">
+          <div class="srv-card-top">
+            <div class="srv-ico">
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="#00A5B7" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="5" width="14" height="10" rx="2"/><path d="M6 5V3.5a3 3 0 0 1 6 0V5"/></svg>
+            </div>
+            <a class="srv-price-badge" href="https://wa.me/5585985535362?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Controle%20de%20Estoque%20personalizado.%20Podemos%20conversar%3F">Solicitar orçamento</a>
+          </div>
+          <div class="srv-title">Controle de Estoque</div>
+          <div class="srv-desc">Automatizado e em tempo real. Alertas, histórico e relatórios.</div>
+        </div>
+        <div class="srv-card feat">
+          <div class="srv-card-top">
+            <div class="srv-ico">
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="#00A5B7" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="14" height="14" rx="3"/><path d="M5 9h8M5 6h8"/></svg>
+            </div>
+            <a class="srv-price-badge" href="https://wa.me/5585985535362?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Sistemas%20Internos%20sob%20medida.%20Podemos%20conversar%3F">Solicitar orçamento</a>
+          </div>
+          <div class="srv-title">Sistemas Internos</div>
+          <div class="srv-desc">CRM, gestão de pedidos e agendamentos sob medida.</div>
+        </div>
+        <div class="srv-card">
+          <div class="srv-card-top">
+            <div class="srv-ico">
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="#526e90" stroke-width="1.5" stroke-linecap="round"><path d="M2 16V8l4-5 4 5V4l3 3v9H2z"/></svg>
+            </div>
+            <a class="srv-price-badge" href="https://wa.me/5585985535362?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Dashboards.%20Podemos%20conversar%3F">Solicitar orçamento</a>
+          </div>
+          <div class="srv-title">Dashboards</div>
+          <div class="srv-desc">Seus dados num lugar só. Decisões rápidas.</div>
+        </div>
+        <div class="srv-card">
+          <div class="srv-card-top">
+            <div class="srv-ico">
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="#526e90" stroke-width="1.5" stroke-linecap="round"><circle cx="5" cy="9" r="2.5"/><circle cx="13" cy="5" r="2.5"/><circle cx="13" cy="13" r="2.5"/></svg>
+            </div>
+            <a class="srv-price-badge" href="https://wa.me/5585985535362?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Automa%C3%A7%C3%A3o%20e%20Integra%C3%A7%C3%B5es.%20Podemos%20conversar%3F">Solicitar orçamento</a>
+          </div>
+          <div class="srv-title">Automação + Integrações</div>
+          <div class="srv-desc">Tarefas repetitivas no piloto automático.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <div class="testimonial">
+      <p class="testimonial-text">"O sistema tem feito a diferença. Hoje temos <span>mais controle e clareza</span> e isso impacta diretamente como ajudamos as pessoas."</p>
+      <div class="testimonial-author">
+        <div class="t-av">HS</div>
+        <div>
+          <div class="t-name">Herbênia S.</div>
+          <div class="t-role">Diretora Executiva · ONG Fonte da Vida, Fortaleza</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="section">
+      <div class="section-kicker">Como funciona</div>
+      <h2 class="section-title">Da conversa ao sistema no ar.</h2>
+      <p class="section-sub">Processo simples, transparente e sem surpresas.</p>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Diagnóstico</div>
+          <div class="step-desc">30-60 min para entender seu problema</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">Proposta em 48h</div>
+          <div class="step-desc">Escopo, prazo e valor. Sem surpresas</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Desenvolvimento</div>
+          <div class="step-desc">Atualização semanal, feedback em tempo real</div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-title">Entrega</div>
+          <div class="step-desc">Demo, treinamento e suporte inclusos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+      <h3>Qual problema você quer resolver?</h3>
+      <p>Sem compromisso. Sem enrolação. Conte o problema e a gente avalia retorno em até 24 horas.</p>
+      <a class="cta-big" href="https://wa.me/5585985535362?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20tecnologia%20personalizada%20para%20minha%20empresa.%20Podemos%20conversar%3F">Conversar pelo WhatsApp</a><br>
+      <div class="cta-note">Ou acesse <a href="https://gabgcx.github.io/Conexus-Tecnologia/" style="color:#00A5B7">conexus.com.br</a> e preencha o formulário</div>
+    </div>
+
+    <!-- EMAIL FOOTER -->
+    <div class="email-footer">
+      <div class="footer-logo"><img src="../../../../assets/logo.png" alt="CONEXUS" style="display:block;height:40px;width:auto;max-width:180px;border:none;outline:none;text-decoration:none;margin:0 auto;"></div>
+      <div class="footer-contacts">
+        (85) 98553-5362 · conexusprojetos@gmail.com · conexus.com.br<br>
+        Rua Pedro de Queirós 50, Parquelândia · Fortaleza, CE
+      </div>
+      <div class="footer-legal">
+        Você está recebendo este e-mail porque demonstrou interesse em soluções tecnológicas.<br>
+        <a href="#" style="color:#334d6e">Cancelar inscrição</a> · © 2026 Conexus. Todos os direitos reservados.
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
